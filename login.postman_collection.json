@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "ee0d8ab6-45fe-4364-8eb3-519f2af7759f",
+		"name": "login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "登录",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//获取响应报文中的json",
+							"var jsonData = JSON.parse(responseBody);",
+							"//设置全局表量",
+							"pm.globals.set(\"token\", jsonData.sessionId);",
+							"pm.environment.set(\"token\", jsonData.sessionId)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"login\":\"admin\",\"password\":\"VH09N83oeInKy5N6HhT0m3yLNlb4TY3voSzfpI/9tfB43Y/9CR60UFoEfMWvDppf2E/iQTgY\",\"loginType\":\"system\",\"roleLoginType\":0}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dsm.test.jingkunsystem.com:19040/itsm/api-dsm/dsm-main-service/user/login",
+					"protocol": "http",
+					"host": [
+						"dsm",
+						"test",
+						"jingkunsystem",
+						"com"
+					],
+					"port": "19040",
+					"path": [
+						"itsm",
+						"api-dsm",
+						"dsm-main-service",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
